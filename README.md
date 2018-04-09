@@ -20,3 +20,12 @@ Angular + Component Angular Material
 2. Mise en place du TAB 'personnes' au sein de l'interface 'affaires' avec association, désassociation, création+association. 
 
 
+##### Mockup  
+
+DashBoard: ![Alt Text](https://github.com/stephp30/FilRougeFront/blob/master/img/dashboard.png)  
+
+Détails Affaire: ![Alt Text](https://github.com/stephp30/FilRougeFront/blob/master/img/Details%20Affaires.png)  
+
+Personne: ![Alt Text](https://github.com/stephp30/FilRougeFront/blob/master/img/Personnes.png)  
+
+Détails Personne: ![Alt Text](https://github.com/stephp30/FilRougeFront/blob/master/img/D%C3%A9tails%20Personne.png)
