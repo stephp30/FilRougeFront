@@ -1,0 +1,42 @@
+<mat-card>
+  <mat-table [dataSource]="vehiculeSource">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef fxHide.xs>Identifiant</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.id}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="marque">
+      <mat-header-cell *matHeaderCellDef fxHide.xs>Marque</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.marque}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="model">
+      <mat-header-cell *matHeaderCellDef>Modèle</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.model}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="color">
+      <mat-header-cell *matHeaderCellDef fxHide.xs>Couleur</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.color}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="licensePlate">
+      <mat-header-cell *matHeaderCellDef fxHide.xs>Immatriculation</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.licensePlate}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="createDate">
+      <mat-header-cell *matHeaderCellDef>Date de création</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.createDate | date: 'dd-MM-yyyy'}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="updateDate">
+      <mat-header-cell *matHeaderCellDef fxHide.xs>Dernière mise à jour</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.updateDate | date: 'dd-MM-yyyy'}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="edit">
+      <mat-header-cell *matHeaderCellDef fxHide.xs></mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs><a (click)="dialogEdit(row)"><mat-icon>mode_edit</mat-icon></a></mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef fxHide.xs></mat-header-cell>
+        <mat-cell *matCellDef="let row" fxHide.xs><a (click)="dialogDeleteLink(row)"><i class="fas fa-unlink"></i></a></mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="vehiculeColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: vehiculeColumns"></mat-row>
+  </mat-table>
+</mat-card>

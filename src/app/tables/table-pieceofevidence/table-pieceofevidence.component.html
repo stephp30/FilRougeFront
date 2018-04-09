@@ -1,0 +1,32 @@
+<mat-table [dataSource]="pieceOfEvidenceSource">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>Idenftifiant</mat-header-cell>
+    <mat-cell *matCellDef="let row"></mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="type">
+    <mat-header-cell *matHeaderCellDef fxHide.xs>Type</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.type}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="serialNumber">
+    <mat-header-cell *matHeaderCellDef fxHide.xs>Numéro de série</mat-header-cell>
+    <mat-cell *matCellDef="let row" fxHide.xs>{{row.serialNumber}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="createDate">
+    <mat-header-cell *matHeaderCellDef>Date de création</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.createDate | date: 'dd-MM-yyyy'}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="updateDate">
+    <mat-header-cell *matHeaderCellDef>Dernière mise à jour</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.updateDate | date: 'dd-MM-yyyy'}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="edit">
+      <mat-header-cell *matHeaderCellDef fxHide.xs></mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs><a (click)="dialogEdit(row)"><mat-icon>mode_edit</mat-icon></a></mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef fxHide.xs></mat-header-cell>
+        <mat-cell *matCellDef="let row" fxHide.xs><a (click)="dialogDeleteLink(row)"><i class="fas fa-unlink"></i></a></mat-cell>
+      </ng-container>
+  <mat-header-row *matHeaderRowDef="pieceOfEvidenceColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: pieceOfEvidenceColumns"></mat-row>
+</mat-table>

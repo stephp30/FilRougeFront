@@ -1,0 +1,31 @@
+<!-- titre -->
+<mat-toolbar fxLayoutAlign="center">détail d'une pièce à conviction</mat-toolbar>
+
+<section fxLayout='row' fxLayout.xs='column'>
+  <div fxFlex='70'>
+    <mat-card>
+      <div fxLayout='row' fxLayout.xs='column'>
+        <!-- détails de la pièce à conviction -->
+        <article fxFlex='40'>
+          <h1>PIECE A CONVICTION</h1>
+          <h6>dernière mise à jour le {{pieceOfEvidence?.updateDate | date: 'dd-MM-yyyy'}}</h6>
+          <p>Type : <b>{{pieceOfEvidence?.type}}</b></p>
+          <p>Numéro de série : <b>{{pieceOfEvidence?.serialNumber}}</b></p>
+          <p>Date de création : <b>{{pieceOfEvidence?.createDate| date: 'dd-MM-yyyy'}}</b></p>
+        </article>
+        <mat-card fxFlex='60' fxLayoutAlign="center center">PHOTO</mat-card>
+      </div>
+     <!-- <h3 [ngStyle.xs]='title'>Affaire associées</h3>
+       <app-affaire-pieceOfEvidence></app-affaire-pieceOfEvidence> -->
+    </mat-card>
+    <div  fxLayout="row" fxLayoutAlign="end">
+      <!-- options -->
+      <button mat-raised-button color="accent" routerLink="edit">Editer</button>
+      <button mat-raised-button (click)="backToList()" color="accent">Retour</button>
+    </div>
+  </div>
+  <!-- édition des informations du véhicule -->
+  <div fxFlex='30'>
+    <router-outlet></router-outlet>
+  </div>
+</section>

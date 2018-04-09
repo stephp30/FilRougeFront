@@ -1,0 +1,55 @@
+<section fxLayout="row" fxLayout.xs="column">
+
+    <!-- intitulé/description de l'affaire -->
+  <mat-card fxFlex="40">
+    <div class='bandeau' fxLayoutAlign='space-between center'>
+      <h4>Affaire : {{policeCase?.name}}</h4>
+      <div fxLayoutAlign="end stretch" fxLayoutGap="20px" *ngIf="!editing" class="lastbutton">
+        <button mat-raised-button color="accent" class="lastbutton" (click)='editCase()'>
+          <span matTooltip="Editer l'affaire">Editer</span>
+        </button>
+      </div>
+      <div fxLayoutAlign="end stretch" fxLayoutGap="20px" *ngIf="editing">
+        <button mat-raised-button color="accent" class="lastbutton">
+          <span matTooltip="Valider l'édition">Valider</span>
+        </button>
+        <div class="lastbutton">
+          <button mat-raised-button color="warn" (click)='editCase()'>
+            <span matTooltip="Annuler l'édition">Annuler</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <mat-card *ngIf='!editing'>
+      <p>Description:</p>
+      <p>{{policeCase?.description}}</p>
+    </mat-card>
+    <div *ngIf='editing'><app-form-affaire></app-form-affaire></div>
+  </mat-card>
+  
+    <!-- historique des messages -->
+  <mat-card fxFlex="60">
+    <div class='bandeau' fxLayoutAlign='start center'>
+      <h4>Historique</h4>
+    </div>
+    <app-message-affaire></app-message-affaire>
+  </mat-card>
+</section>
+<mat-card>
+  <!-- Titre "Sections et boutons d'actions" -->
+  <div fxLayoutAlign='space-between center' class='bandeau' fxlayout='row'>
+    <h4 class='nomsection' fxHide.xs>Sections</h4>
+      <div fxLayoutAlign="end stretch" fxLayoutGap="20px">
+        <button mat-raised-button color="accent">
+          <span matTooltip="Associer un élément existant" (click)='openAssociate()'>Associer</span>
+        </button>
+        <div class="lastbutton">
+          <button mat-raised-button color="accent" (click)="openCreateAssociate()">
+            <span matTooltip="Créer & Associer un nouvel élément">Créer & Associer</span>
+          </button>
+        </div>
+      </div>
+  </div>
+    <!-- Sections -->
+  <app-explore-tables></app-explore-tables>
+</mat-card>

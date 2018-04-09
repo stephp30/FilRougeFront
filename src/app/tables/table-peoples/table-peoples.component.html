@@ -1,0 +1,54 @@
+<mat-card>
+  <!-- titre -->
+  <div class='bandeau' fxLayoutAlign='space-between center'>
+    <h4 fxLayoutAlign='center center'>Liste des personnes</h4>
+    <div class='lastbutton'>
+      <button mat-raised-button color='accent' routerLink="/newpeople">Ajouter une personne</button>
+    </div>
+  </div>
+
+  <!-- tableau -->
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtre">
+  </mat-form-field>
+  <mat-table [dataSource]="peopleSource" matSort>
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef fxHide.xs mat-sort-header>Prénom</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.firstName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef fxHide.xs mat-sort-header>Nom</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.lastName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="nickName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Surnom</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.nickName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="skinColor">
+      <mat-header-cell *matHeaderCellDef fxHide.xs mat-sort-header>Ethnie</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.skinColor}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="eyeColor">
+      <mat-header-cell *matHeaderCellDef fxHide.xs mat-sort-header>Yeux</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.eyeColor}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="hairColor">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Cheveux</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.hairColor}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="size">
+      <mat-header-cell *matHeaderCellDef fxHide.xs mat-sort-header>Taille</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.size}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="weight">
+      <mat-header-cell *matHeaderCellDef fxHide.xs mat-sort-header>Poids</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.weight}}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="peopleColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: peopleColumns" routerLink="{{row.id}}"></mat-row>
+  </mat-table>
+
+  <!-- pagination -->
+  <mat-paginator #paginator [pageSize]=8 [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+  </mat-paginator>
+</mat-card>

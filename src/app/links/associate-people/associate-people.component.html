@@ -1,0 +1,15 @@
+<form #peopleForm="ngForm" (ngSubmit)="onSubmit(peopleForm)" fxLayout="column" class="container">
+  <mat-form-field>
+    <input matInput type="text" required placeholder="Prénom" name="firstName" [(ngModel)]="people.firstName">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" required placeholder="Nom" name="lastName" [(ngModel)]="people.lastName">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" required placeholder="Surnom" name="nickName" [(ngModel)]="people.nickName">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" required placeholder="Ethnie" name="skinColor" [(ngModel)]="people.skinColor">
+  </mat-form-field>
+  <button mat-raised-button type="submit" [disabled]="!peopleForm.valid" color="accent">Créer & Associer</button>
+</form>

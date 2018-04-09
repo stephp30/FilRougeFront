@@ -1,0 +1,47 @@
+<mat-card><!-- titre -->
+  <div class='bandeau' fxLayoutAlign='space-between center'>
+      <h4 fxLayoutAlign='center center'>Liste des armes</h4>
+      <div class='lastbutton'>
+        <button mat-raised-button color='accent' routerLink="/newweapon">Ajouter une arme</button>
+      </div>
+  </div>
+
+<!-- tableau -->
+<section>
+  <div fxLayout='row' fxLayoutAlign='space-between center'>
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtre">
+    </mat-form-field>
+  </div>
+  <mat-table [dataSource]="weaponSource">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef fxHide.xs>Identifiant</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.id}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="createDate">
+      <mat-header-cell *matHeaderCellDef fxHide.xs>Date d'intégration</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.createDate | date: 'dd-MM-yyyy'}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.type}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="modele">
+      <mat-header-cell *matHeaderCellDef fxHide.xs>Modèle</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.modele}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="updateDate">
+        <mat-header-cell *matHeaderCellDef fxHide.xs>Mise à jour</mat-header-cell>
+        <mat-cell *matCellDef="let row" fxHide.xs>{{row.updateDate | date: 'dd-MM-yyyy'}}</mat-cell>
+      </ng-container>
+    <mat-header-row *matHeaderRowDef="weaponColumns" class="titreTableau"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: weaponColumns" class="clicLigneTableau" routerLink="{{row.id}}"></mat-row>
+  </mat-table>
+ 
+  <!-- pagination -->
+  <mat-paginator #paginator
+                 [pageSize]=8
+                 [pageSizeOptions]="[5, 10, 20]"
+                 [showFirstLastButtons]="true">
+  </mat-paginator>
+</section>

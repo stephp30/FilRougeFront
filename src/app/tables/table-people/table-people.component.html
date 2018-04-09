@@ -1,0 +1,42 @@
+<mat-card>
+  <mat-table [dataSource]="peopleSource">
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef fxHide.xs>Prénom</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.firstName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef fxHide.xs>Nom</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.lastName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="nickName">
+      <mat-header-cell *matHeaderCellDef>Surnom</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.nickName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="skinColor">
+      <mat-header-cell *matHeaderCellDef fxHide.xs>Ethnie</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.skinColor}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="eyeColor">
+      <mat-header-cell *matHeaderCellDef fxHide.xs>Couleur des Yeux</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.eyeColor}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="size">
+      <mat-header-cell *matHeaderCellDef>Taille</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.size}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="weight">
+      <mat-header-cell *matHeaderCellDef fxHide.xs>Poids</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs>{{row.weight}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="edit">
+      <mat-header-cell *matHeaderCellDef fxHide.xs></mat-header-cell>
+      <mat-cell *matCellDef="let row" fxHide.xs><a (click)="dialogEdit(row)"><mat-icon>mode_edit</mat-icon></a></mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef fxHide.xs></mat-header-cell>
+        <mat-cell *matCellDef="let row" fxHide.xs><a (click)="openDeleteDialog(row.id)"><i class="fas fa-unlink"></i></a></mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="peopleColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: peopleColumns"></mat-row>
+  </mat-table>
+</mat-card>

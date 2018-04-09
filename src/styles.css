@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0px;
+}
+
+.mat-card {
+    margin: 10px;
+}
+
+.logo {
+    font-family: 'Ultra', serif;
+    font-size: 60px;
+}
+
+button {
+    color: #ff6d00;
+}
+
+mat-row:hover {
+    background-color: #f2f4f7;
+ }
+
+.bandeau {
+    background-color: #6D7877;
+    height: 61.75px;
+    color: white;
+}
+
+h4 {
+    color: white;
+    margin-left: 15px;
+}
+
+.lastbutton {
+    margin-right: 30px;
+}
+
+.mat-icon, .svg-inline--fa {
+    cursor: pointer; 
+}

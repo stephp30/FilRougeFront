@@ -1,0 +1,16 @@
+<section fxLayout="row" fxLayout.xs="column">
+  <!-- historique des événements -->
+  <mat-card fxFlex="40">
+    <div class='bandeau' fxLayoutAlign='start center'>
+      <h4 fxLayoutAlign='center center'>Historique</h4>
+      </div>
+      <app-message-affaire></app-message-affaire>
+    </mat-card>
+  <!-- table d'affaires -->
+  <mat-card fxFlex="60">
+      <div class='bandeau' fxLayoutAlign='space-between center'>
+        <h4 fxLayoutAlign='center center'>Affaires</h4>
+      </div>
+      <app-table-case></app-table-case>
+  </mat-card>
+</section>

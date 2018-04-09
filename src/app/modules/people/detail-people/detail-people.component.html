@@ -1,0 +1,51 @@
+<mat-card *ngIf="people">
+<!-- titre -->
+<mat-toolbar fxLayoutAlign="center">détail d'une personne</mat-toolbar>
+
+<section fxLayout='row' fxLayout.xs='column'>
+  <div fxFlex='70'>
+    <mat-card>
+      <div fxLayout='row' fxLayout.xs='column'>
+        <!-- détails du véhicule -->
+        <article fxFlex='40'>
+          <h1>PERSONNE</h1>
+          <h6>dernière mise à jour le {{people?.uptdateDate | date: 'dd-MM-yyyy'}}</h6>
+          <p>Prénom :
+            <b>{{ people.firstName }}</b>
+          </p>
+          <p>Nom :
+            <b>{{ people.lastName }}</b>
+          </p>
+          <p>Surnom :
+            <b>{{ people.nickName }}</b>
+          </p>
+          <p>Couleur des yeux :
+            <b>{{people?.eyeColor}}</b>
+          </p>
+          <p>Taille :
+            <b>{{people?.size}}</b>
+          </p>
+          <p>Poids :
+            <b>{{people?.weight}}</b>
+          </p>
+          <p>Ethnie :
+            <b>{{people?.skinColor}}</b>
+          </p>
+
+        </article>
+        <mat-card fxFlex='60' fxLayoutAlign="center center">PHOTO</mat-card>
+      </div>
+
+    </mat-card>
+    <div fxLayout="row" fxLayoutAlign="end">
+      <!-- options -->
+      <button mat-raised-button color="accent" routerLink="edit">Editer</button>
+      <button mat-raised-button (click)="backToList()" color="accent">Retour</button>
+    </div>
+  </div>
+  <!-- édition des informations du véhicule -->
+  <div fxFlex='30'>
+    <router-outlet></router-outlet>
+  </div>
+</section>
+</mat-card>

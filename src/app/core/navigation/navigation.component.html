@@ -1,0 +1,35 @@
+<!-- header -->
+<div class="container">
+    <mat-toolbar>
+        <mat-toolbar-row fxLayoutAlign="start center">
+            <button mat-button id="navButton" (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+            <h1 class="logo">POLICE</h1>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    
+    <!-- barre de navigation -->
+    <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav #sidenav mode='side'>
+            <!-- contenu du menu de navigation -->
+            <!-- Identité utilisateur -->
+            <img src="assets/images/AvatarIcon.png" class="userIcon" style="text-align: center"/>
+            <mat-card class='identity'>
+            <h4 class="nom">Agent Dupont</h4>
+            <h6 class="matricule">Agent n°0860</h6>
+            </mat-card>
+            <!-- liens de navigation -->
+            <mat-nav-list>
+                <a mat-list-item routerLink="newaffaire">Créer Affaire</a>
+                <a mat-list-item routerLink="dashboard">Tableau de bord</a>
+                <a mat-list-item routerLink="weapons">Armes</a>
+                <a mat-list-item routerLink="pieceOfEvidence">Pièces à conviction</a>
+                <a mat-list-item routerLink="vehicules">Véhicules</a>
+                <a mat-list-item routerLink="peoples">Personnes</a>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <!-- routage de l'application -->
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

@@ -1,0 +1,31 @@
+<!--  page de détail et d'édition / suppression de l'arme sélectionnée -->
+<mat-toolbar fxLayoutAlign="center">détail d'une arme</mat-toolbar>
+
+<section fxLayout='row' fxLayout.xs='column'>
+  <div fxFlex='70'>
+    <mat-card>
+      <div fxLayout='row' fxLayout.xs='column'>
+      <!-- détails de l'arme -->
+      <article fxFlex='40'>
+        <h1>ARME</h1>
+        <h6>dernière mise à jour le {{weapon?.updateDate | date: 'dd-MM-yyyy'}}</h6>
+        <p>Marque : <b>{{weapon?.type}}</b></p>
+        <p>Modèle : <b>{{weapon?.modele}}</b></p>
+        <p>Date de création : <b>{{weapon?.createDate| date: 'dd-MM-yyyy'}}</b></p>   
+      </article>
+      <mat-card fxFlex='60' fxLayoutAlign="center center">PHOTO</mat-card>
+    </div>
+  </mat-card>
+  <div  fxLayout="row" fxLayoutAlign="end">
+    <!-- options -->
+    <button mat-raised-button color="accent" routerLink="edit">Editer</button>
+    <button mat-raised-button (click)="backToList()" color="accent">Retour</button>
+  </div>
+   <!-- <h3 [ngStyle.xs]='title'>Affaire associées</h3>
+       <app-affaire-weapon></app-affaire-weapon> -->
+</div>
+<!-- édition des informations du véhicule -->
+<div fxFlex='30'>
+  <router-outlet></router-outlet>
+</div>
+</section>

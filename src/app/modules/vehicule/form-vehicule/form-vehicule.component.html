@@ -1,0 +1,20 @@
+<!-- Formulaire de création/édition de véhicule -->
+<mat-card>
+  <mat-toolbar class='bandeau' fxLayoutAlign="center center">{{editing ? 'Edition' : 'Création'}}</mat-toolbar>
+  <form #vehiculeForm="ngForm" (ngSubmit)="onSubmit(vehiculeForm)" fxLayout="column" class="container">
+    <mat-form-field>
+      <input matInput type="text" required placeholder="Marque" name="name" [(ngModel)]="vehicule.marque">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" required placeholder="Modèle" name="model" [(ngModel)]="vehicule.model">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" required placeholder="Couleur" name="color" [(ngModel)]="vehicule.color">
+    </mat-form-field>
+    <mat-form-field>
+      <input pattern="^[A-Z]{1,2}-[0-9]{1,3}-[A-Z]{1,2}$" matInput type="text" required placeholder="Plaque d'immatriculation format 00-AAA-00"
+        name="licensePlate" [(ngModel)]="vehicule.licensePlate">
+    </mat-form-field>
+    <button mat-raised-button type="submit" [disabled]="!vehiculeForm.valid" color="accent">Envoyer</button>
+  </form>
+</mat-card>
